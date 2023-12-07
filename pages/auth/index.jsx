@@ -6,7 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-const Index = () => {
+const Auth = () => {
   ////////////////////////
   const [veriant, setVeraint] = useState("login");
   const [username, setUsername] = useState("");
@@ -136,4 +136,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Auth;
