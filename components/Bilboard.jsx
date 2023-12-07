@@ -1,10 +1,11 @@
 import React from "react";
 import useBilboard from "../hooks/useBilboard";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import PlayButton from "./PlayButton";
 const Bilboard = () => {
   const { data } = useBilboard();
   return (
-    <div className="relative h-[56.25vw] ">
+    <div className="relative h-[57vw] ">
       <video
         autoPlay
         muted
@@ -13,7 +14,7 @@ const Bilboard = () => {
         src={data?.videoUrl}
         poster={data?.thumbnailUrl}
       ></video>
-      <div className="ml-4 absolute top-[30%] md:ml-16 md:top-[40%]">
+      <div className="ml-4 absolute top-[20%] md:ml-16 md:top-[30%] ">
         <p className="text-white text-1xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl  ">
           {data?.title}
         </p>
@@ -21,7 +22,8 @@ const Bilboard = () => {
           {data?.description}
         </p>
         <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
-          <button className="bg-white text-white bg-opacity-30 py-1 md:py-2px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
+          <PlayButton movieId={data?.id} />
+          <button className="rounded-md bg-white text-white bg-opacity-30 py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition">
             <AiOutlineInfoCircle className="mr-1" /> More Info
           </button>
         </div>
