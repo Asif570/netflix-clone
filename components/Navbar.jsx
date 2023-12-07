@@ -3,6 +3,7 @@ import NavbarItem from "./NavbarItem";
 import { BsChevronDown, BsBell, BsSearch } from "react-icons/bs";
 import MobileMenu from "./MobileMenu";
 import AccountMenu from "./AccountMenu";
+import useCurrentUser from "@/hooks/useCurrentUser";
 
 const TOP_OFFSET = 66;
 const Navbar = () => {
@@ -33,6 +34,7 @@ const Navbar = () => {
   const toggleAccountMenuHundler = () => {
     setshowAccountMenu((cur) => !cur);
   };
+  const { currentUser } = useCurrentUser();
   return (
     <div className=" w-full  fixed z-40">
       <div
@@ -73,7 +75,10 @@ const Navbar = () => {
             className="flex flex-row gap-3 items-center cursor-pointer relative"
           >
             <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-              <img src="/images/Netflix-avatar.png" alt="avarta" />
+              <img
+                src={currentUser?.image || "/images/Netflix-avatar.png"}
+                alt="avarta"
+              />
             </div>
 
             <BsChevronDown

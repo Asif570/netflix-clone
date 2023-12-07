@@ -7,9 +7,12 @@ import useMovieList from "../hooks/useMovieList";
 import usefavorite from "../hooks/usefavorite";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import InfoModal from "../components/InfoModal";
+import useInfoModal from "@/hooks/useInfoModal";
 const Home = () => {
   const session = useSession();
   const router = useRouter();
+  const { isOpen, closeModal } = useInfoModal();
   useEffect(() => {
     if (session?.status !== "loading" && session?.status !== "authenticated") {
       router.push("/auth");
@@ -19,6 +22,7 @@ const Home = () => {
   const { favoriteMovies } = usefavorite();
   return (
     <div>
+      <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <Bilboard />
       <div className="pb-4">
