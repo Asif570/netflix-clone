@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-const index = () => {
+const Profile = () => {
   const session = useSession();
   const router = useRouter();
   useEffect(() => {
@@ -23,4 +23,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Profile;
