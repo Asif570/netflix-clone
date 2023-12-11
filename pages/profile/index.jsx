@@ -13,7 +13,7 @@ const Profile = () => {
   }, [session?.status]);
   const { currentUser } = useCurrentUser();
   return (
-    <div className="w-full mx-4 my-16 max-w-md flex flex-col gap-4">
+    <div className="w-full mx-4 my-16 max-w-md flex flex-col gap-4 items-center justify-center">
       <div className="w-full flex items-start justify-center">
         <div className="h-16 w-16 md:h-24 md:w-24 rounded-full overflow-clip border-2 border-neutral-300">
           <img
@@ -22,14 +22,14 @@ const Profile = () => {
             alt="logo"
           />
         </div>
-        <div className="w-full">
-          <input
-            className="h-6 rounded-md border-neutral-300 outline-none text-white text-lg font-semibold"
-            type="text"
-            value={currentUser?.username || ""}
-            disabled={true}
-          />
-        </div>
+      </div>
+      <div className="w-full">
+        <input
+          className="h-6 rounded-md border-neutral-300 outline-none text-white text-lg font-semibold"
+          type="text"
+          value={currentUser?.username || ""}
+          disabled={true}
+        />
       </div>
     </div>
   );
